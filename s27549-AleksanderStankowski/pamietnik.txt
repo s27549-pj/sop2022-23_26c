@@ -5,3 +5,10 @@ Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem/lam sie:
  - instalacji debiana bez środowiska graficznego
  - dowiedziałem się o różnach typach instalacji systemu jak np. network install
  - pierwsze zajęcia oceniam jako bardzo wartościowe lecz był to bardziej wykład niż ćwiczenia, dla mnie najlepszą metodą nauki jest praca samodzielna i praktyka
+
+2023-04-01
+Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
+ - Składni instrukcji warunkowych
+ - Składni pętli
+ - Pisania własnych funkcji
+ - Operowania na tablicach
