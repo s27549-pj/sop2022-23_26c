@@ -12,3 +12,10 @@ Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
  - Składni pętli
  - Pisania własnych funkcji
  - Operowania na tablicach
+
+2023-04-23
+Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
+- implementacji list wiązanych
+- różnic pomiędzy jezykiem c a cpp
+- kompilowania pliku zrodlowego w terminalu
+- obsługiwanie parametrów w funkcji main
