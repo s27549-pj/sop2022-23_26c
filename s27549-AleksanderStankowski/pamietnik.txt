@@ -19,3 +19,8 @@ Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
 - różnic pomiędzy jezykiem c a cpp
 - kompilowania pliku zrodlowego w terminalu
 - obsługiwanie parametrów w funkcji main
+
+
+2023-05-07
+Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
+- tworzenia nowych procesów oraz zarządzania nimi
