@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 int main() {
-    printf("PID: %i\nPPID: %i\n", getpid(), getppid());
+    printf("PID: %i\tPPID: %i\n", getpid(), getppid());
     getchar();
     return 0;
 }
