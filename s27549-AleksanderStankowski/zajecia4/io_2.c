@@ -9,6 +9,10 @@ int main(int argc, char** argv) {
     printf("Loading file: %s\n", argv[1]);
     file = fopen(argv[1], "rb");
 
+    if (file == NULL) {
+        perror("Error opening file");
+        return 1;
+    }
     while ((char_read = fread(buffer, sizeof(unsigned char), 16, file)) > 0) {
         printf("%08x  ", current_row * 16);
         for (i = 0; i < 16; i++) {
