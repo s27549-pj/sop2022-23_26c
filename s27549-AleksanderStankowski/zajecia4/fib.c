@@ -7,12 +7,10 @@ int fib1(int n) {
 }
 
 int fib2(int n) {
-    for (i = 0; i < n; i++)
-    {
+    for (i = 0; i < n; i++) {
         if (i <= 1)
             result = i;
-        else
-        {
+        else {
             result = first + second;
             first = second;
             second = result;
