@@ -24,3 +24,7 @@ Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
 2023-05-07
 Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
 - tworzenia nowych procesów oraz zarządzania nimi
+
+2023-05-20
+Moj kochany pamietniczku na dzisiejszych zajeciach nauczylem sie:
+- korzystania z socketów oraz sygnałów
