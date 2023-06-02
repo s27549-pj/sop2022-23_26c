@@ -1,10 +1,3 @@
-Treść zadania:
-
-Zajęcia 1: Instalacja systemu linux na maszynach wirtualnych
-Prosze zrobic commit do swojego repozytorum do galezi glownej (master lub main) w katalogu o nazwie sXXXXX-ImieNazwisko. W nim proszę stworzyć katalog zajecia1 a w nim plik instalacja_debian_linux.txt z opisem procesu instalacji systemu. Czyli sXXXXX-ImieNazwisko/zajecia1/instalacja_debian_linux.txt Prosze jeszcze raz przeczytac powyzsze punkty od slowa Primo!. Reguly te, maja byc tu takze (jak i w kazdym zadaniu przez reszte semestru) przestrzegane.
-
-Wykonanie zadania:
-
 Instrukcja instalacji systemu Linux na maszynie wirtualnej:
 
 1. Pobieramy obraz systemu:
@@ -12,86 +5,148 @@ Na stronie https://www.debian.org/download pobieramy plik debian-11.6.0-amd64-ne
 Z nazwy pliku obrazu możemy dowiedzieć się:
 - jest to Debian w wersji 11.6.0
 - system bazuję na architekturze 64 bitowej
-- jest to obraz typu "network install" co oznacza, że jest to instalacja o minimalnym rozmiarze pozwalająca na instalacje tylko podstawowego systemu a reszta potrzebnych pakietów zostanie pobrana przez internet. Zalety: pakiety są zawsze w najnowszej wersji, szybsze przygotowanie bootowalnego pendrive lub cd (mniejszy plik iso), zazwyczaj dostępne łącze internetowe będzie szybsze od USB/CD-ROM.
+- jest to obraz typu "network install" co oznacza, że jest to instalacja o minimalnym 
+rozmiarze pozwalająca na instalacje tylko podstawowego systemu a reszta potrzebnych 
+pakietów zostanie pobrana przez internet. Zalety: pakiety są zawsze w najnowszej 
+wersji, szybsze przygotowanie bootowalnego pendrive lub cd (mniejszy plik iso), 
+zazwyczaj dostępne łącze internetowe będzie szybsze od USB/CD-ROM.
 
 2. Tworzenie nowej maszyny w programie VirtualBox
-Po uruchomieniu programu tworzymy nową maszynę wirtualną używając przycisku NEW lub skrótu CTRL + N
+Po uruchomieniu programu tworzymy nową maszynę wirtualną używając przycisku NEW 
+lub skrótu CTRL + N
 
 Virtual machine Name and Operating System:
-- Jako nazwę wpisujemy dystrybucje naszego systemu, czyli "debian", dzięki czemu VirualBox automatycznie dopasuje typ i wersje systemu.
+- Jako nazwę wpisujemy dystrybucje naszego systemu, czyli "debian", dzięki czemu 
+VirualBox automatycznie dopasuje typ i wersje systemu.
 
 Hardware:
 - Ustawiamy ile zasób naszego komputera może być używane przez wirtualną maszynę
-- Jeśli nie jesteśmy pewni ile zasób powiniśmy przydzielić można skorzystać z zaleceń na stronie: https://www.debian.org/releases/jessie/mips/ch03s04.html.en
-- Przydzielam 1024 MB pamięci RAM (dwa razy więcej niż zalecana wartość) tak, aby usprawnić instalacje oraz przyszłą pracę na systemie (używaj potęgi liczby 2, aby uniknąć rezerwacji pamięci która nie może być użyta)
-- Przydzielam jeden rdzeń, ponieważ będzie to podstawowy system niewykonujący złożonych operacji arytmetycznych.
+- Jeśli nie jesteśmy pewni ile zasób powiniśmy przydzielić można skorzystać z zaleceń 
+na stronie: https://www.debian.org/releases/jessie/mips/ch03s04.html.en
+- Przydzielam 1024 MB pamięci RAM (dwa razy więcej niż zalecana wartość) tak, aby 
+usprawnić instalacje oraz przyszłą pracę na systemie (używaj potęgi liczby 2, aby 
+uniknąć rezerwacji pamięci która nie może być użyta)
+- Przydzielam jeden rdzeń, ponieważ będzie to podstawowy system niewykonujący złożonych 
+operacji arytmetycznych.
 
 Vitual Hard Disk
-Tworzymy nowy dysk 4 GB (zalecane jest 2 GB, ale chcemy mieć dodatkowe miejsce na pliki użytkowników, dodatkowe pakiety itd.) ponieważ nie posiadamy gotowego dysku do podpięcia.
-Jest opcja pre-alokacji całego dysku wirtualnego na naszym dysku fizycznym w celu uniknięcia fragmentacji danych czy braku miejsca na dysku fizycznym. Fragmentacja dysku jest problemem na HDD ponieważ fizyczna głowica musi zczytywać dane z różych sektorów co spowalnia pracę. Nie wybieram tej opcji ponieważ używam dysku SSD, mój dysk wirtualny będzie alokowany dynamicznie.
+Tworzymy nowy dysk 4 GB (zalecane jest 2 GB, ale chcemy mieć dodatkowe miejsce na 
+pliki użytkowników, dodatkowe pakiety itd.) ponieważ nie posiadamy gotowego dysku 
+do podpięcia.
+Jest opcja pre-alokacji całego dysku wirtualnego na naszym dysku fizycznym w celu 
+uniknięcia fragmentacji danych czy braku miejsca na dysku fizycznym. Fragmentacja 
+dysku jest problemem na HDD ponieważ fizyczna głowica musi zczytywać dane z różych 
+sektorów co spowalnia pracę. Nie wybieram tej opcji ponieważ używam dysku SSD, mój 
+dysk wirtualny będzie alokowany dynamicznie.
 
 Summary:
-Tutaj mamy podsumowanie wszystkich informacji o naszej maszynie wirtualnej, jeśli wszystko się zgadza z naszymi wymaganiami to kończymy tworzenie maszyny.
+Tutaj mamy podsumowanie wszystkich informacji o naszej maszynie wirtualnej, jeśli 
+wszystko się zgadza z naszymi wymaganiami to kończymy tworzenie maszyny.
 
 3. Konfiguracja naszej maszyny wirtualnej
-Wybieracjąc naszą maszynę możemy otworzyć jej ustawienia w celu dogłębniejszej konfiguracji, większość tych opcji zostawiam na domyślnych wartościach, ale wyjaśnię je.
+Wybieracjąc naszą maszynę możemy otworzyć jej ustawienia w celu dogłębniejszej konfiguracji, 
+większość tych opcji zostawiam na domyślnych wartościach, ale wyjaśnię je.
 
 General
-Tutaj znajdują się ogólne ustawienia, większość z nich została omówiona i ustawiona przez nas przy tworzeniu maszyny wirtualnej w kroku 1
-W tej sekcji możemy wybrać lokalizacje w której będą zapisywane migawki. Migawki są bardzo przydatne, pozwalają na zapisanie danego stanu maszyny wirtualnej, gdy podczas nauki popełnimy krytyczny bład możemy łatwo i szybko przywrócić system do wybranego wcześniej stanu.
-Istnieje możliwość dodania opisu do maszyny tak, aby inne osoby lub my w przyszłości nie musieli się zastawiać do czego służy dana maszyna.
-Za pomocą algorytmów szyfrujących można zabezpieczyć dysk maszyny wirutalnej, aby zapobiec odczytania danych przez nieuprawnionych użytkowników. Szyfrowanie danych spowalnia pracę maszyny, więc jeżeli nie trzymamy tam poufnych danch nie warto stosowac tej opcji.
+Tutaj znajdują się ogólne ustawienia, większość z nich została omówiona i ustawiona 
+przez nas przy tworzeniu maszyny wirtualnej w kroku 1
+W tej sekcji możemy wybrać lokalizacje w której będą zapisywane migawki. Migawki 
+są bardzo przydatne, pozwalają na zapisanie danego stanu maszyny wirtualnej, gdy 
+podczas nauki popełnimy krytyczny bład możemy łatwo i szybko przywrócić system do 
+wybranego wcześniej stanu.
+Istnieje możliwość dodania opisu do maszyny tak, aby inne osoby lub my w przyszłości 
+nie musieli się zastawiać do czego służy dana maszyna.
+Za pomocą algorytmów szyfrujących można zabezpieczyć dysk maszyny wirutalnej, aby 
+zapobiec odczytania danych przez nieuprawnionych użytkowników. Szyfrowanie danych 
+spowalnia pracę maszyny, więc jeżeli nie trzymamy tam poufnych danch nie warto stosowac 
+tej opcji.
 
 System
-Kolejność bootowania, możemy zostawić domyślną (Dyskietka, CD, HDD) kolejność, ponieważ tylko przy instalacji będę używać napędu optycznego, w momencie, gdy już zainstaluje system nie zależnie od kolejności boot z dysku będzie jedyną możliwośćia.
-Możemy wybrać między chipsetem "PIIX3" oraz "ICH9", jeżeli mamy problemy z kompatybilnością VirtualBoxa używamy drugiej opcji, w innym przypadku zawsze zostajemy przy pierwszej, ponieważ jest to opcja rekomendowana z największym wsparciem.
-I/O APIC pozostawiam domyślnie włączone, ponieważ jest to kontroler przerwań systemowych, który umożliwię systemowi na pracę wielozadaniową.
-Hardware Clock in UTC Time pozostawiam włączone, dzięki temu nie trzeba będzie manualnie ustawiać godziny w systemie.
-EFI jest to rodzaj warstwy między system operacyjnym a firmware, nie potrzebujemy tej opcji. W przypadku zaznaczenia proces bootwania mógłby się trochę różnić.
-PAE/NX zostawiamy wyłączone, ta opcja pozwala na używanie więcej niż 4 GB RAM przy systemach 32 bit
-VT-x/AMD-V zostawiamy wyłączone, ta opcja pozwala na uruchamianie maszyn wirtualnych w maszynach wirtualnych.
+Kolejność bootowania, możemy zostawić domyślną (Dyskietka, CD, HDD) kolejność, ponieważ 
+tylko przy instalacji będę używać napędu optycznego, w momencie, gdy już zainstaluje 
+system nie zależnie od kolejności boot z dysku będzie jedyną możliwośćia.
+Możemy wybrać między chipsetem "PIIX3" oraz "ICH9", jeżeli mamy problemy z kompatybilnością 
+VirtualBoxa używamy drugiej opcji, w innym przypadku zawsze zostajemy przy pierwszej, 
+ponieważ jest to opcja rekomendowana z największym wsparciem.
+I/O APIC pozostawiam domyślnie włączone, ponieważ jest to kontroler przerwań systemowych, 
+który umożliwię systemowi na pracę wielozadaniową.
+Hardware Clock in UTC Time pozostawiam włączone, dzięki temu nie trzeba będzie manualnie 
+ustawiać godziny w systemie.
+EFI jest to rodzaj warstwy między system operacyjnym a firmware, nie potrzebujemy 
+tej opcji. W przypadku zaznaczenia proces bootwania mógłby się trochę różnić.
+PAE/NX zostawiamy wyłączone, ta opcja pozwala na używanie więcej niż 4 GB RAM przy 
+systemach 32 bit
+VT-x/AMD-V zostawiamy wyłączone, ta opcja pozwala na uruchamianie maszyn wirtualnych 
+w maszynach wirtualnych.
 
 Display
-Tutaj możemy ustawić ilość pamięci video, ilość monitorów czy kontroler graficzny. Jako że instalowany przeze mnie system nie będzie posiadać GUI zostawiam te opcje na domyślnych wartościach. W zależności od potrzeb możemy emulować różne kontrolery graficzne jak np. SVGA czy VGA.
-Remote Display pozwala nam na łączenie się z maszyną wirtualną przez protokół RDP co pozwala na zdalne użytkowanie maszyny.
-Recording, pozwala na natywne przechwytywanie obrazu, warto używać tej opcji, ponieważ będzie ona działać bardziej efektywnie niż np. OBS. Symuluje to fizyczne karty przechwytujące sygnał bezpośrednio z wyjścia karty graficznej.
+Tutaj możemy ustawić ilość pamięci video, ilość monitorów czy kontroler graficzny. 
+Jako że instalowany przeze mnie system nie będzie posiadać GUI zostawiam te opcje 
+na domyślnych wartościach. W zależności od potrzeb możemy emulować różne kontrolery 
+graficzne jak np. SVGA czy VGA.
+Remote Display pozwala nam na łączenie się z maszyną wirtualną przez protokół RDP 
+co pozwala na zdalne użytkowanie maszyny.
+Recording, pozwala na natywne przechwytywanie obrazu, warto używać tej opcji, ponieważ 
+będzie ona działać bardziej efektywnie niż np. OBS. Symuluje to fizyczne karty przechwytujące 
+sygnał bezpośrednio z wyjścia karty graficznej.
 
 Storage
 Wybieramy kontroler dla naszego dysku wirtualnego oraz port, do którego jest podłączony.
-Tutaj możemy podłączyć pobrany w pierwszym kroku plikiem iso do napędu optycznego, będzie on widziany jako płyta w napędzie CD/DVD
+Tutaj możemy podłączyć pobrany w pierwszym kroku plikiem iso do napędu optycznego, 
+będzie on widziany jako płyta w napędzie CD/DVD
 (Po zainstalowaniu odłączamy ten obraz).
 
 Audio
-Instalowany system jest bez GUI i nie będzie wymagać dźwięku. Możemy tutaj jaki kontroler audio chcemy emulować. Jest opcja włączenia/wyłączania oddzielnie audio input/output.
+Instalowany system jest bez GUI i nie będzie wymagać dźwięku. Możemy tutaj jaki 
+kontroler audio chcemy emulować. Jest opcja włączenia/wyłączania oddzielnie audio 
+input/output.
 
 Network
-Tutaj możemy zarządzać naszymi adapterami, które emulują fizyczną kartę sieciową w komputerze.
-Jest wiele trybów działania tych adapterów, tutaj lista wszystkich trybów ze strony https://ckziumragowo.pl/szkolne-artykuly/2021/Rodzaje-sieci-w-programie-VirtualBox
+Tutaj możemy zarządzać naszymi adapterami, które emulują fizyczną kartę sieciową 
+w komputerze.
+Jest wiele trybów działania tych adapterów, tutaj lista wszystkich trybów ze strony 
+https://ckziumragowo.pl/szkolne-artykuly/2021/Rodzaje-sieci-w-programie-VirtualBox
 "
-NAT – opcja ustawiana domyślnie, brak możliwości komunikacji pomiędzy maszynami wirtualnymi, komunikację między gospodarzem i gościem można nawiązać, wykorzystując przekierowania portów. Gość ma dostęp do zewnętrznej sieci.
-Mostkowana karta sieciowa (bridged) – komputer gościa ma dostęp do sieci gospodarza, możliwa jest obustronna komunikacja między gospodarzem i gościem, a także z urządzeniami w sieci lokalnej.
-Sieć wewnętrzna – powstaje sieć wewnętrzna, w której wirtualne maszyny widzą się nawzajem, maszyny nie mają dostępu gospodarza.
-Karta sieci izolowanej (host-only) – rozwinięcie sieci wewnętrznej, komputer gospodarza wykorzystuje wirtualną kartę sieciową i za jej pośrednictwem może komunikować się z wirtualnymi maszynami.
-Rodzajowy sterownik – opcja stosowana do budowania sieci VDE, a także tunelowania UDP.
-Sieć NAT – możliwość utworzenia sieci wewnętrznej dla grupy maszyn wirtualnych, dodatkowo m.in. dostępny jest mechanizm przekierowania portów, możliwa jest komunikacja między maszynami wirtualnymi, dodatkowe ustawienia dostępne są z poziomu menu głównego (Plik/Globalne ustawienia/Sieci).
-Cloud Network (experimental) – eksperymentalna opcja wykorzystania sieci w chmurze firmy Oracle.
-Niepodłączona – interfejs sieciowy maszyny wirtualnej jest utworzony, jednak pozostaje rozłączony podłączony, podobnie jak w przypadku odłączenia kable od fizycznego interfejsu.
+NAT – opcja ustawiana domyślnie, brak możliwości komunikacji pomiędzy maszynami 
+wirtualnymi, komunikację między gospodarzem i gościem można nawiązać, wykorzystując 
+przekierowania portów. Gość ma dostęp do zewnętrznej sieci.
+Mostkowana karta sieciowa (bridged) – komputer gościa ma dostęp do sieci gospodarza, 
+możliwa jest obustronna komunikacja między gospodarzem i gościem, a także z urządzeniami 
+w sieci lokalnej.
+Sieć wewnętrzna – powstaje sieć wewnętrzna, w której wirtualne maszyny widzą się 
+nawzajem, maszyny nie mają dostępu gospodarza.
+Karta sieci izolowanej (host-only) – rozwinięcie sieci wewnętrznej, komputer gospodarza 
+wykorzystuje wirtualną kartę sieciową i za jej pośrednictwem może komunikować się 
+z wirtualnymi maszynami.
+Rodzajowy sterownik – opcja stosowana do budowania sieci VDE, a także tunelowania 
+UDP.
+Sieć NAT – możliwość utworzenia sieci wewnętrznej dla grupy maszyn wirtualnych, 
+dodatkowo m.in. dostępny jest mechanizm przekierowania portów, możliwa jest komunikacja 
+między maszynami wirtualnymi, dodatkowe ustawienia dostępne są z poziomu menu głównego 
+(Plik/Globalne ustawienia/Sieci).
+Cloud Network (experimental) – eksperymentalna opcja wykorzystania sieci w chmurze 
+firmy Oracle.
+Niepodłączona – interfejs sieciowy maszyny wirtualnej jest utworzony, jednak pozostaje 
+rozłączony podłączony, podobnie jak w przypadku odłączenia kable od fizycznego interfejsu.
 "
 Pozostaję przy domyślnym ustawieniu, NAT.
 Mamy możliwość generowania adresów MAC (część adresu będzie zawsze taka sama)
 Może ustawić przekierowanie portów oraz emulowanie podłączonego fizycznego kabla.
 
 Serial Ports
-Możliwość emulacji portów szeregowych, są one zazwyczaj potrzebne tylko do starszych urządzeń lub zaawansowanych sprzętów do zostosowań industrialnych.
+Możliwość emulacji portów szeregowych, są one zazwyczaj potrzebne tylko do starszych 
+urządzeń lub zaawansowanych sprzętów do zostosowań industrialnych.
 
 USB
 Tutaj możemy wybrać kontroler USB oraz emulować podłączenie urządzenia USB pod port.
 
 Shared Folders
-Ta opcja pozwala na korzystanie z zasobów sieciowych. Może to być bardzo przydatne, jeżeli pracujemy na paru maszynach jednocześnie.
+Ta opcja pozwala na korzystanie z zasobów sieciowych. Może to być bardzo przydatne, 
+jeżeli pracujemy na paru maszynach jednocześnie.
 
 4. Instalacja systemu Linux
-Po uruchomieniu maszyny jesteśmy od razu witani przez installer debiana (jeżeli dobrze skonfigurowaliśmy maszynę wirtualną).
+Po uruchomieniu maszyny jesteśmy od razu witani przez installer debiana (jeżeli 
+dobrze skonfigurowaliśmy maszynę wirtualną).
 
 Dostępne opcje to:
 > Graphical install
@@ -103,15 +158,22 @@ Dostępne opcje to:
 > Accessible dark contrast installer
 - wysoko kontrastowe UI dla osób mające problemy ze wzrokiem
 > Help
-- Pokazuje nam metody bootwania, parametry i tryby instalacji (część tych rzeczy znajdziemy w advanced options), warunki użytkowania oraz wyjaśnia rescue mode, który może posłużyć do uratowania systemu lub chociaż plików
+- Pokazuje nam metody bootwania, parametry i tryby instalacji (część tych rzeczy 
+znajdziemy w advanced options), warunki użytkowania oraz wyjaśnia rescue mode, który 
+może posłużyć do uratowania systemu lub chociaż plików
 > Install with speech synthesis
-- podczas tego trybu wszystkie prompty i wpisywane wartości są czytane na głoś przez syntezator.
+- podczas tego trybu wszystkie prompty i wpisywane wartości są czytane na głoś przez 
+syntezator.
 
-Następnie wybieramy język, w którym będzie odbywać się instalacja, ja wybieram angielski, ponieważ jest najbardziej uniwersalny.
+Następnie wybieramy język, w którym będzie odbywać się instalacja, ja wybieram angielski, 
+ponieważ jest najbardziej uniwersalny.
 
-Wybieramy naszą lokację, wybieramy lokacje najbliżej naszej aktualnej lokalizacji poniważ od tego będzie zależeć strefa czasowa, format datowania, czy lokalizacja serwera, z którego będą pobierane pakiety.
+Wybieramy naszą lokację, wybieramy lokacje najbliżej naszej aktualnej lokalizacji 
+poniważ od tego będzie zależeć strefa czasowa, format datowania, czy lokalizacja 
+serwera, z którego będą pobierane pakiety.
 
-Wybieramy język klawiatury, polecam wybrać angielski, ponieważ jest uniwersalny oraz polskie znaki mogą tworzyć komplikacje.
+Wybieramy język klawiatury, polecam wybrać angielski, ponieważ jest uniwersalny 
+oraz polskie znaki mogą tworzyć komplikacje.
 
 Układ klawiatury powinien odpowiadać naszej fizycznej klawiaturze.
 
@@ -119,29 +181,42 @@ Hostname to dowolna wymyślona przez nas nazwa, która jest jednym słowem.
 
 Jeżeli pracujemy w domeniu to tutaj możemy dodać jej nazwę żeby sięz nią połączyć.
 
-Root password jest to hasło do konta administracyjnego, normalnie dobrze, żeby było złożone i dobrze chronione. Na nasze edukacyjne potrzeby ustawiam łatwe do wpisywania hasło (zaq1@WSX), aby zaoszczędzić sobie czasu.
+Root password jest to hasło do konta administracyjnego, normalnie dobrze, żeby było 
+złożone i dobrze chronione. Na nasze edukacyjne potrzeby ustawiam łatwe do wpisywania 
+hasło (zaq1@WSX), aby zaoszczędzić sobie czasu.
 
-Teraz tworzone jest konto użytkownika warto tutaj podać swoje imię żeby od razu wiedzieć że chodzi o nasze user account.
+Teraz tworzone jest konto użytkownika warto tutaj podać swoje imię żeby od razu 
+wiedzieć że chodzi o nasze user account.
 
-Przechodzimy do partycjonowania dysków, całą procedurę można zrobić automatycznie (guided) lub manualnie:
+Przechodzimy do partycjonowania dysków, całą procedurę można zrobić automatycznie 
+(guided) lub manualnie:
 
-Opcja automatyczna jest zalecana dla osób początkujących lub dla tych, którym zależy na czasie.
+Opcja automatyczna jest zalecana dla osób początkujących lub dla tych, którym zależy 
+na czasie.
 
 LVM pozwala na podłączanie wirtualnych dysków logicznych, aby uzyskać więcej pamięci.
 
 Encrypted oznacza, że partycje będą zaszyfrowane.
 
-W trybie manualnym sami wybieramy dysk do formatowania, tworzymy MBR, i oddzielnie partycje (miejsce na dysku dzielmy przez 1000 nie jak w windows przez 1024)
+W trybie manualnym sami wybieramy dysk do formatowania, tworzymy MBR, i oddzielnie 
+partycje (miejsce na dysku dzielmy przez 1000 nie jak w windows przez 1024)
 
-Teraz konfigurujemy menedżer pakietów, wybieramy lokalizację serwera najbliżej nas, aby uzyskać jak najlepsze połączenie.
+Teraz konfigurujemy menedżer pakietów, wybieramy lokalizację serwera najbliżej nas, 
+aby uzyskać jak najlepsze połączenie.
 
-Po instalacji paru pakietów jesteśmy pytani, czy chcemy zainstalować jakieś interfejsy graficzne lub usługi takie jak web/ssh server. Ja nie instaluje nic poza ssh i standars syste utilities
+Po instalacji paru pakietów jesteśmy pytani, czy chcemy zainstalować jakieś interfejsy 
+graficzne lub usługi takie jak web/ssh server. Ja nie instaluje nic poza ssh i standars 
+syste utilities
 
-Instaluje GRUB boot loader na naszym dysku wirtualnym, jest to menu pozwalające na wybranie pliku bootowalnego, gdy np. mamy parę systemów na dysku.
+Instaluje GRUB boot loader na naszym dysku wirtualnym, jest to menu pozwalające 
+na wybranie pliku bootowalnego, gdy np. mamy parę systemów na dysku.
 
 Instalacja została zakończona i po restarcie możemy cieszyć się sprawnym systemem.
 
 Moje przemyślenia na temat zadania:
 - Instalacja przeszła sprawnie i szybko
-- Dobrze było odświeżyć sobie proces instalacji systemu od podstaw, a nie tylko klikać na ślepo "Next"
-- Instalowanie Linuksa nie było dla mnie niczym nowym, ale na pewno nauczyłem się, żeby dysponować zasobami takimi jak np. pamięć RAM bardziej rozsądnie i nie przydzielać ich nie potrzebnie.
+- Dobrze było odświeżyć sobie proces instalacji systemu od podstaw, a nie tylko 
+klikać na ślepo "Next"
+- Instalowanie Linuksa nie było dla mnie niczym nowym, ale na pewno nauczyłem się, 
+żeby dysponować zasobami takimi jak np. pamięć RAM bardziej rozsądnie i nie przydzielać 
+ich nie potrzebnie.
