@@ -54,9 +54,13 @@ int main(int argc, char *argv[]) {
     }
 
     file = fopen("received_file", "wb");
-    while (fileLength > 0 && (bytesRead = read(sockfd, buffer, FILEBUFFER_SIZE)) > 0) {
-        fwrite(buffer, sizeof(char), bytesRead, file);
-        fileLength -= bytesRead;
+    if (file == NULL) {
+        error("ERROR opening the file\n");
+    } else {
+        while (fileLength > 0 && (bytesRead = read(sockfd, buffer, FILEBUFFER_SIZE)) > 0) {
+            fwrite(buffer, sizeof(char), bytesRead, file);
+            fileLength -= bytesRead;
+        }
     }
     
     fclose(file);
