@@ -7,7 +7,8 @@
 #define LOCKFILE "/tmp/lock"
 
 int kill(pid_t pid, int sig);
-void signalHandler(int signalNumber);
+void handleSIGUSR1();
+void handleSIGINT();
 
 int main() {
     FILE* file = fopen(LOCKFILE, "r");
@@ -19,8 +20,8 @@ int main() {
         }
         fprintf(file, "%i", getpid());
         fclose(file);
-        signal(SIGUSR1, signalHandler);
-        signal(SIGINT, signalHandler);
+        signal(SIGUSR1, handleSIGUSR1);
+        signal(SIGINT, handleSIGINT);
         while(1) {
             sleep(1);
         }
@@ -32,13 +33,13 @@ int main() {
     return 0;
 }
 
-void signalHandler(int signalNumber) {
-    if (signalNumber == SIGUSR1) {
-        signal(SIGUSR1, signalHandler);
-        printf("\nReceived signal SIGUSR1. Detected the attempt to start a second instance of the program.\n");
-    } else if (signalNumber == SIGINT) {
-        printf("\nReceived signal SIGINT (Ctrl+C). Removing lock file and exiting the program.\n");
-        remove(LOCKFILE);
-        exit(0);
-    }
+void handleSIGUSR1() {
+    signal(SIGUSR1, handleSIGUSR1);
+    printf("\nReceived signal SIGUSR1. Detected the attempt to start a second instance of the program.\n");
+}
+
+void handleSIGINT() {
+    printf("\nReceived signal SIGINT (Ctrl+C). Removing lock file and exiting the program.\n");
+    remove(LOCKFILE);
+    exit(0);
 }
